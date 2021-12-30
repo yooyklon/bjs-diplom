@@ -47,8 +47,10 @@ moneyManager.addMoneyCallback = function(data) {
  ApiConnector.addMoney({...data}, (response) => {
   if (response.success) {
    ProfileWidget.showProfile(response.data);
+   setMessage(response.success, 'Пополнение прошло успешно');
+  } else {
+   isThis.setMessage(response.success, response.error);
   }
-  isThis.setMessage(response.success, response.error);
  });
 };
 
@@ -57,8 +59,10 @@ moneyManager.conversionMoneyCallback = function(data) {
  ApiConnector.convertMoney({...data}, (response) => {
   if (response.success) {
    ProfileWidget.showProfile(response.data);
+   setMessage(response.success, 'Конвертация прошла успешно');
+  } else {
+   isThis.setMessage(response.success, response.error);
   }
-  isThis.setMessage(response.success, response.error);
  });
 };
 
@@ -67,8 +71,10 @@ moneyManager.sendMoneyCallback = function(data) {
  ApiConnector.transferMoney({...data}, (response) => {
   if (response.success) {
    ProfileWidget.showProfile(response.data);
+   setMessage(response.success, 'Перевод средств прошёл успешно');
+  } else {
+   isThis.setMessage(response.success, response.error);
   }
-  isThis.setMessage(response.success, response.error);
  });
 };
 
